@@ -15,9 +15,8 @@ curl --retry 5 -L "https://downloads.openwrt.org/snapshots/targets/ipq40xx/gener
 sed -e '/^CONFIG_TARGET_DEVICE_/d' -e '/CONFIG_TARGET_ALL_PROFILES=y/d' -i .config
 cat "$GITHUB_WORKSPACE/additional_config.txt" >> .config
 
-sed -i '76i*)' target/linux/ipq40xx/base-files/etc/board.d/01_leds
-sed -i "77i;;" target/linux/ipq40xx/base-files/etc/board.d/01_leds
-sed -i 's/https/http/g' feeds.conf.default
+sed -i '/esac/i\*)' target/linux/ipq40xx/base-files/etc/board.d/01_leds
+sed -i '/esac/i\\t;;' target/linux/ipq40xx/base-files/etc/board.d/01_leds
 
 chmod +x "$GITHUB_WORKSPACE/checkpatch.sh"
 "$GITHUB_WORKSPACE/checkpatch.sh"
