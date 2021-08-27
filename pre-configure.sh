@@ -17,6 +17,7 @@ cat "$GITHUB_WORKSPACE/additional_config.txt" >> .config
 
 sed -i '76i*)' target/linux/ipq40xx/base-files/etc/board.d/01_leds
 sed -i "77i;;" target/linux/ipq40xx/base-files/etc/board.d/01_leds
+sed -i 's/https/http/g' feeds.conf.default
 
 chmod +x "$GITHUB_WORKSPACE/checkpatch.sh"
 "$GITHUB_WORKSPACE/checkpatch.sh"

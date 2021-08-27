@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e -x
 
-_version="$(printf "%s" "$REPO_BRANCH" | cut -c 2-)"
-_vermagic="$(curl --retry 5 -L "https://downloads.openwrt.org/releases/${_version}/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic.manifest" | sed -e '/^kernel/!d' -e 's/^.*-\([^-]*\)$/\1/g' | head -n 1)"
+_version="snapshot"
+_vermagic="$(curl --retry 5 -L https://downloads.openwrt.org/snapshots/targets/ipq40xx/generic/openwrt-ipq40xx-generic.manifest | sed -e '/^kernel/!d' -e 's/^.*-\([^-]*\)$/\1/g' | head -n 1)"
 
 OLD_CWD="$(pwd)"
 
