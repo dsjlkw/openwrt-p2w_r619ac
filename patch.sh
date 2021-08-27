@@ -19,10 +19,10 @@ endef' >> include/image-commands.mk
 sed -i 's/ALLWIFIBOARDS[ \t]*:=/ALLWIFIBOARDS:= p2w_r619ac /' package/firmware/ipq-wifi/Makefile
 sed -i '/$(eval $(call [^,]*,linksys_ea8300,[^)]*))/a$(eval $(call generate-ipq-wifi-package,p2w_r619ac,board-p2w_r619ac.qca4019,P&W R619AC))' package/firmware/ipq-wifi/Makefile
 
-curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee4b666ab0f675ac96492c06b5fb6e25/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019 > package/firmware/ipq-wifi/board-p2w_r619ac.qca4019  ## From lean
-#curl --retry 5 -L https://raw.githubusercontent.com/x-wrt/x-wrt/cb7d766274aaf36863f10386f6730f94b44dbe43/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019 > package/firmware/ipq-wifi/board-p2w_r619ac.qca4019  ## From X-WRT
+curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019 > package/firmware/ipq-wifi/board-p2w_r619ac.qca4019  ## From lean
+#curl --retry 5 -L https://raw.githubusercontent.com/x-wrt/x-wrt/master/package/firmware/ipq-wifi/board-p2w_r619ac.qca4019 > package/firmware/ipq-wifi/board-p2w_r619ac.qca4019  ## From X-WRT
 
-curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee4b666ab0f675ac96492c06b5fb6e25/scripts/mkits-qsdk-ipq-image.sh > scripts/mkits-qsdk-ipq-image.sh
+curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/master/scripts/mkits-qsdk-ipq-image.sh > scripts/mkits-qsdk-ipq-image.sh
 
 sed -i '/\*)/i\p2w,r619ac |\\' target/linux/ipq40xx/base-files/etc/board.d/01_leds  ## x-wrt have not
 sed -i '/\*)/i\p2w,r619ac-128m)' target/linux/ipq40xx/base-files/etc/board.d/01_leds  ## x-wrt have not
@@ -48,10 +48,10 @@ sed -i '/8dev,jalapeno[ \t]*|/i\\tp2w,r619ac-128m |\\' target/linux/ipq40xx/base
 sed -i '/8dev,jalapeno[ \t]*|/i\\tp2w,r619ac-128m |\\' target/linux/ipq40xx/base-files/lib/upgrade/platform.sh
 sed -i '/8dev,jalapeno[ \t]*|/i\\tp2w,r619ac |\\' target/linux/ipq40xx/base-files/lib/upgrade/platform.sh
 
-curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee4b666ab0f675ac96492c06b5fb6e25/target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac-128m.dts > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac-128m.dts
-curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee4b666ab0f675ac96492c06b5fb6e25/target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dts > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dts
-#curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee4b666ab0f675ac96492c06b5fb6e25/target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use lean's dts
-#curl --retry 5 -L https://raw.githubusercontent.com/x-wrt/x-wrt/6d51b76b38a723ca84e13910518030ddc2b7c2f6/target/linux/ipq40xx/files-4.19/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use X-WRT's dts
+curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/openwrt/lede-17.01/target/linux/ipq40xx/files-4.19/arch/arm/boot/dts/qcom-ipq4019-r619ac-128m.dts > target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac-128m.dts
+curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/openwrt/lede-17.01/target/linux/ipq40xx/files-4.19/arch/arm/boot/dts/qcom-ipq4019-r619ac.dts > target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dts
+#curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/openwrt/lede-17.01/target/linux/ipq40xx/files-4.19/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use lean's dts
+#curl --retry 5 -L https://raw.githubusercontent.com/x-wrt/x-wrt/master/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use X-WRT's dts
 echo '// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 
 #include "qcom-ipq4019.dtsi"
@@ -367,7 +367,7 @@ echo '// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 &wifi1 {
 	status = "okay";
 	qcom,ath10k-calibration-variant = "R619AC";
-};' > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi
+};' > target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi
 
 sed -i '${/$(eval $(call BuildImage))/d;}' target/linux/ipq40xx/image/Makefile
 echo '
@@ -399,4 +399,4 @@ TARGET_DEVICES += p2w_r619ac-128m
 
 $(eval $(call BuildImage))' >> target/linux/ipq40xx/image/Makefile
 
-sed -i 's/qcom-ipq4019-a62.dtb/qcom-ipq4019-a62.dtb qcom-ipq4019-r619ac.dtb qcom-ipq4019-r619ac-128m.dtb/' target/linux/ipq40xx/patches-4.14/901-arm-boot-add-dts-files.patch
+sed -i 's/qcom-ipq4019-a62.dtb/qcom-ipq4019-a62.dtb qcom-ipq4019-r619ac.dtb qcom-ipq4019-r619ac-128m.dtb/' target/linux/ipq40xx/patches/901-arm-boot-add-dts-files.patch
