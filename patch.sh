@@ -399,4 +399,4 @@ TARGET_DEVICES += p2w_r619ac-128m
 
 $(eval $(call BuildImage))' >> target/linux/ipq40xx/image/Makefile
 
-sed -i 's/qcom-ipq4019-a62.dtb/qcom-ipq4019-a62.dtb qcom-ipq4019-r619ac.dtb qcom-ipq4019-r619ac-128m.dtb/' target/linux/ipq40xx/patches/901-arm-boot-add-dts-files.patch
+sed -i 's/qcom-ipq4019-a62.dtb/qcom-ipq4019-a62.dtb qcom-ipq4019-r619ac.dtb qcom-ipq4019-r619ac-128m.dtb/' target/linux/ipq40xx/patches-5.4/901-arm-boot-add-dts-files.patch
