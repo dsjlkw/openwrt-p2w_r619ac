@@ -3,7 +3,6 @@ set -e -x
 
 _vermagic="$(curl --retry 5 -L https://downloads.openwrt.org/snapshots/targets/ipq40xx/generic/openwrt-ipq40xx-generic.manifest | sed -e '/^kernel/!d' -e 's/^.*-\([^-]*\)$/\1/g' | head -n 1)"
 
-sed -i 's/https/http/g' feeds.conf.default
 OLD_CWD="$(pwd)"
 
 [ "$(find build_dir/ -name .vermagic -exec cat {} \;)" = "$_vermagic" ] && \
