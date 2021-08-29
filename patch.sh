@@ -53,7 +53,6 @@ curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/0fa35495ee
 curl --retry 5 -L https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use lean's dts
 #curl --retry 5 -L https://raw.githubusercontent.com/x-wrt/x-wrt/6d51b76b38a723ca84e13910518030ddc2b7c2f6/target/linux/ipq40xx/files-4.19/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi > target/linux/ipq40xx/files-4.14/arch/arm/boot/dts/qcom-ipq4019-r619ac.dtsi  ## Use X-WRT's dts
 
-
 sed -i '${/$(eval $(call BuildImage))/d;}' target/linux/ipq40xx/image/Makefile
 echo '
 define Device/p2w_r619ac
