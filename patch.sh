@@ -287,15 +287,6 @@ echo '// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 };
 
 &tlmm {
-        pcie_pins: pcie_pinmux {
-                mux {
-                        pins = "gpio2";
-                        function = "gpio";
-                        bias-pull-down;
-                        output-low;
-                };
-        };
-	
 	mdio_pins: mdio_pinmux {
 		mux_1 {
 			pins = "gpio6";
