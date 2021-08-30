@@ -16,7 +16,7 @@ mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-sq
 mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-squashfs-nand-sysupgrade.bin ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-squashfs-nand-sysupgrade.bin && \
 make clean && \
 \
-make image PROFILE='p2w_r619ac-128m' && \
+make image PROFILE='p2w_r619ac-128m' PACKAGES='luci luci-proto-qmi kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-uhci' && \
 mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi && \
 mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin && \
 make clean && \
