@@ -9,7 +9,7 @@ OLD_CWD="$(pwd)"
 mkdir ~/imb && \
 tar -xJf bin/targets/ipq40xx/generic/openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz -C ~/imb && \
 cd ~/imb/* && \
-make image PROFILE='p2w_r619ac-128' PACKAGES="kmod-usb-storage block-mount kmod-fs-ext4 luci luci-proto-qmi kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras luci-i18n-base-zh-cn" && \
+make image PROFILE='p2w_r619ac-128m' PACKAGES="kmod-usb-storage block-mount kmod-fs-ext4 luci luci-proto-qmi kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras luci-i18n-base-zh-cn wget ca-certificates" && \
 mv bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi ../openwrt-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi && \
 mv bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin ../openwrt-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin && \
 make clean && \
