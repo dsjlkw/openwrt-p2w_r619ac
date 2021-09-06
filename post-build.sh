@@ -16,7 +16,11 @@ make image PROFILE='p2w_r619ac-128m' PACKAGES="kmod-usb-storage block-mount kmod
 mv bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi ../openwrt-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi && \
 mv bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin ../openwrt-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin && \
 make clean && \
-mv ../*.bin ../*.ubi "$OLD_CWD/bin/targets/ipq40xx/generic/"
+mv ../*.bin ../*.ubi "$OLD_CWD/bin/targets/ipq40xx/generic/" && \
+rm -rf bin/* && \
+cd ../ && \
+tar czf openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz openwrt-imagebuilder-* && \
+mv openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz "$OLD_CWD/bin/targets"/*/*/
 
 cd "$OLD_CWD/bin/targets"/*/*
 mv openwrt-imagebuilder-* openwrt-sdk-* ..
