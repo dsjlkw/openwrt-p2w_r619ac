@@ -18,8 +18,8 @@ mv bin/targets/ipq40xx/generic/openwrt-ipq40xx-generic-p2w_r619ac-128m-squashfs-
 make clean && \
 mv ../*.bin ../*.ubi "$OLD_CWD/bin/targets/ipq40xx/generic/" && \
 rm -rf bin/* && \
-cd ../ && \
-tar czf openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz openwrt-imagebuilder-* && \
+cd ~/imb/ && \
+tar -cJf openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz openwrt-imagebuilder-* && \
 mv openwrt-imagebuilder-ipq40xx-generic.Linux-x86_64.tar.xz "$OLD_CWD/bin/targets"/*/*/
 
 cd "$OLD_CWD/bin/targets"/*/*
