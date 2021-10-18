@@ -14,7 +14,7 @@ mkdir -p packages && \
 find $OLD_CWD/bin -depth -iname "ipq-wifi-p2w_r619ac*.ipk" -exec cp {} packages/ \; && \
 echo "src custom file://""$(pwd)""/packages" >> repositories.conf && \
 make image PROFILE='p2w_r619ac-128m' PACKAGES="kmod-usb-storage block-mount kmod-fs-ext4 luci luci-proto-qmi kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras luci-i18n-base-zh-cn wget ca-certificates" && \
-mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-squashfs-nand-factory.ubi ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi && \
+mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-factory.ubi && \
 mv bin/targets/ipq40xx/generic/openwrt-${_version}-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin ../openwrt-${_version}-minimal-ipq40xx-generic-p2w_r619ac-128m-squashfs-nand-sysupgrade.bin && \
 make clean && \
 mv ../*.bin ../*.ubi "$OLD_CWD/bin/targets/ipq40xx/generic/" && \
